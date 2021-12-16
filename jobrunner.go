@@ -1,4 +1,4 @@
-package go-jobrunner
+package gojobrunner
 
 import (
 	"bytes"
@@ -57,7 +57,7 @@ func (j *Job) Run() {
 	defer func() {
 		if err := recover(); err != nil {
 			var buf bytes.Buffer
-			logger := log.New(&buf, "go-jobrunner Log: ", log.Lshortfile)
+			logger := log.New(&buf, "gojobrunner Log: ", log.Lshortfile)
 			logger.Panic(err, "\n", string(debug.Stack()))
 		}
 	}()

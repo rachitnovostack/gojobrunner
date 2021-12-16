@@ -1,4 +1,4 @@
-package go-jobrunner
+package gojobrunner
 
 import (
 	"time"
@@ -7,10 +7,10 @@ import (
 )
 
 type StatusData struct {
-	Id        cron.EntryID
-	go-jobrunner *Job
-	Next      time.Time
-	Prev      time.Time
+	Id          cron.EntryID
+	gojobrunner *Job
+	Next        time.Time
+	Prev        time.Time
 }
 
 // Return detailed list of currently running recurring jobs
@@ -26,7 +26,7 @@ func StatusPage() []StatusData {
 	Statuses := make([]StatusData, len(ents))
 	for k, v := range ents {
 		Statuses[k].Id = v.ID
-		Statuses[k].go-jobrunner = AddJob(v.Job)
+		Statuses[k].gojobrunner = AddJob(v.Job)
 		Statuses[k].Next = v.Next
 		Statuses[k].Prev = v.Prev
 
@@ -44,7 +44,7 @@ func StatusPage() []StatusData {
 func StatusJson() map[string]interface{} {
 
 	return map[string]interface{}{
-		"go-jobrunner": StatusPage(),
+		"gojobrunner": StatusPage(),
 	}
 
 }

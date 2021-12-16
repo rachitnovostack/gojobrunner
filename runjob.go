@@ -8,7 +8,7 @@
 //    concurrently.  If one execution runs into the next, the next will be queued.
 // 4. Cron expressions may be defined in app.conf and are reusable across jobs.
 // 5. Job status reporting. [WIP]
-package go-jobrunner
+package gojobrunner
 
 import (
 	"time"
@@ -20,14 +20,14 @@ import (
 // (Copying the type to this package makes it more visible)
 //
 // For example:
-//    go-jobrunner.Schedule("cron.frequent", jobs.Func(myFunc))
+//    gojobrunner.Schedule("cron.frequent", jobs.Func(myFunc))
 type Func func()
 
 func (r Func) Run() { r() }
 
 // You can add a job using user-defined job name.
 // For example:
-//    go-jobrunner.Schedule("cron.frequent", jobs.Func(myFunc), "my-job")
+//    gojobrunner.Schedule("cron.frequent", jobs.Func(myFunc), "my-job")
 func Schedule(spec string, job cron.Job, n ...string) error {
 	sched, err := cron.ParseStandard(spec)
 	if err != nil {

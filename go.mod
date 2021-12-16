@@ -1,4 +1,4 @@
-module github.com/rachitnovostack/go-jobrunner
+module github.com/rachitnovostack/gojobrunner
 
 go 1.13
 

@@ -42,7 +42,7 @@ th {
 	</head>
 	<body>
 
-<h1>go-jobrunner Status Report</h1>
+<h1>gojobrunner Status Report</h1>
 
 <table>
 	<tr><th>ID</th><th>Name</th><th>Status</th><th>Last run</th><th>Next run</th><th>Latency</th></tr>
@@ -50,11 +50,11 @@ th {
 
 	<tr>
 		<td>{{.Id}}</td>
-		<td>{{.go-jobrunner.Name}}</td>
-		<td>{{.go-jobrunner.Status}}</td>
+		<td>{{.gojobrunner.Name}}</td>
+		<td>{{.gojobrunner.Status}}</td>
 		<td>{{if not .Prev.IsZero}}{{.Prev.Format "2006-01-02 15:04:05"}}{{end}}</td>
 		<td>{{if not .Next.IsZero}}{{.Next.Format "2006-01-02 15:04:05"}}{{end}}</td>
-		<td>{{.go-jobrunner.Latency}}</td>
+		<td>{{.gojobrunner.Latency}}</td>
 	</tr>
 {{end}}
 </table>
